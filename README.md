@@ -4,7 +4,7 @@
 
 Ever since I can remember, my first love has been animals. As a kid I wanted to be like Jane Goodall or Steve Irwin. I followed this passion right through undergrad, and earned a degree in Wildlife & Conservation Biology. Throughout my time in this program, my professors and mentors emphasized the importance of local natural resources and native species. An expectation in every wildlife course; whether ornithology, herpetology, mammalogy, or entomology, was to memorize the clade and scientific name of every species, and to be able to identify that species in the field. 
 
-For this first SEIR project, I wanted to build something that I would've found useful and fun back in my college days. I thought back to the hours I spent making flashcards...the papercuts, the hand cramps, the scissiors and glue. Though using these flashcards was essential to my education, I wouldn't call the memories of making them fond. My goal for this project is to make beautiful and user-friendly virtual flashcards that allow students like past me to take an active role in their learning, without all the steps that come before actually using the flashcards. 
+For this first SEIR project, I wanted to build something that I would've found useful and fun back in my college days. I thought back to the hours I spent making hundreds of flashcards...the papercuts, the hand cramps, the scissiors and glue. Though using these flashcards was essential to my education, I wouldn't call the memories of making them fond. My goal for this project is to make beautiful and user-friendly virtual flashcards that allow students like past me to take an active role in their learning, without all the steps that come before actually using the flashcards. 
 
 
 ## Planning
