@@ -26,7 +26,7 @@ This flashcard game will allow users to study and practice, and a gold feature w
 ### Bronze, Silver, Gold, Platinum plans
 
 Bronze (MVP)
-* [ ] Incorporates HTML, CSS and JavaScript
+* [x] Incorporates HTML, CSS and JavaScript
 * [ ] Renders in the browser
 * [ ] Uses Javascript for DOM manipulation
 * [ ] Deployed online using Github Project pages

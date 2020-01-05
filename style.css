@@ -1,0 +1,56 @@
+/* font-family: 'Roboto Mono', monospace;
+font-family: 'Roboto', sans-serif; */
+header {
+    font-family: 'Roboto Mono', monospace;
+    text-align: center;
+    border-bottom: dashed 1px;
+}
+
+h2 {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.decks {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.deck {
+    height: 400px;
+    width: 300px;
+    border: 1px solid black;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 1);
+    border-radius: 15px;
+    padding-left: 20px;
+    font-family: 'Roboto Mono', monospace;
+    font-variant: small-caps;
+    margin: 10px;
+}
+
+.deck:hover {
+    scale: 1.2;
+    z-index: 999;
+}
+
+.mammals {
+    background-size: cover;
+    background-image: url("flashcard-images/tamius_striatus.jpg");
+}
+
+.birds {
+    background-size: cover;
+    background-image: url("flashcard-images/anas_playtrhynchos.jpg");
+}
+
+.amphibians {
+    background-size: cover;
+    background-image: url("flashcard-images/rana_pipiens.jpg");
+}
+
+.reptiles {
+    background-size: cover;
+    background-image: url("flashcard-images/coluber_constrictor_constrictor.jpg");
+}
