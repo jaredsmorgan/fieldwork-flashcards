@@ -1,9 +1,15 @@
 /* font-family: 'Roboto Mono', monospace;
 font-family: 'Roboto', sans-serif; */
+body {
+    margin: 20px;
+    padding: 0;
+}
+
 header {
     font-family: 'Roboto Mono', monospace;
     text-align: center;
     border-bottom: dashed 1px;
+    margin: 0 auto;
 }
 
 h2 {
@@ -23,7 +29,7 @@ a.decklink{
     text-decoration: none;
 }
 
-.deck {
+.deck, .card-front, .card-back, .gallery-card {
     height: 400px;
     width: 300px;
     border: 1px solid black;
@@ -59,4 +65,36 @@ a.decklink{
 .reptiles {
     background-size: cover;
     background-image: url("flashcard-images/coluber_constrictor_constrictor.jpg");
+}
+
+.card-front {
+    display: inline-block;
+}
+
+.card-back {
+    display: none;
+}
+
+.study-mode, .gallery {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.hidden {
+    display: none;
+}
+
+.gallery-card {
+    height: 250px;
+    width: 175px;
+    font-size: 14px;
+}
+
+.gallery-card:hover img{
+    display:none;
+}
+
+.gallery-card:not(:hover) dl {
+    display:none;
 }
