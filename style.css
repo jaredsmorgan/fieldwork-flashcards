@@ -110,6 +110,7 @@ a.decklink{
 
 .card-names {
     padding-left: 20px;
+    padding-right:5px;
 }
 
 .gallery-card:hover div{
