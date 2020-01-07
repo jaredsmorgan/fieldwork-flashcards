@@ -35,17 +35,17 @@ Here's a mockup I made in Gimp. This is the plan for the landing page, which I w
 Bronze (MVP)
 
 - [x] Incorporates HTML, CSS and JavaScript
-- [ ] Renders in the browser
-- [ ] Uses Javascript for DOM manipulation
+- [x] Renders in the browser
+- [x] Uses Javascript for DOM manipulation
 - [ ] Deployed online using Github Project pages
-- [ ] Uses semantic markup for HTML and CSS (adhere to best practices)
-- [ ] Has a landing page that displays all cards ("study mode")
-- [ ] Has a "practice mode" where cards are shuffled and users can flip back and forth between front and back of them
+- [x] Uses semantic markup for HTML and CSS (adhere to best practices)
+- [x] Has a landing page that displays all cards ("study mode")
+- [x] Has a "practice mode" where cards are shuffled and users can flip back and forth between front and back of them
 
 Silver
 
-- [ ] Is beautifully designed with CSS
-- [ ] Features different "decks" users can choose from e.g. reptiles, amphibians, animal track ID
+- [x] Is beautifully designed with CSS
+- [x] Features different "decks" users can choose from e.g. reptiles, amphibians, animal track ID
 
 Gold
 
