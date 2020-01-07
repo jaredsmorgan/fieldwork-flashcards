@@ -81,14 +81,34 @@ a.decklink{
     flex-wrap: wrap;
 }
 
-.hidden {
-    display: none;
+.gallery-head {
+    display: inline-block;
+}
+
+.button {
+    font-family: 'Roboto Mono', monospace;
+    font-variant: small-caps;
+    padding: 5px 10px;
+    margin: 18px;
+    background-color: white;
+    color:black;
+    border: 1px solid black;
+    float:right;
+}
+
+.button:hover {
+    background-color: #999999;
+    cursor: pointer;
 }
 
 .gallery-card {
     height: 250px;
     width: 175px;
     font-size: 14px;
+}
+
+.cardpic {
+    display:block;
 }
 
 .gallery-card:hover img{

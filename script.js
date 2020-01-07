@@ -32,7 +32,7 @@ function getSpecies(classID) {
         .then(function(response) {
             let results = response.results;
             let species = results.map(result => result.speciesKey)
-                .filter(speciesKey => speciesKey !== undefined && speciesKey !== 9163257 && speciesKey !== 2435035);
+                .filter(speciesKey => speciesKey !== undefined && speciesKey !== 9163257 && speciesKey !== 2435035 && speciesKey !== 2441370);
             
             species = Array.from(new Set(species));
             return species;
@@ -131,6 +131,7 @@ function getInfoList(info) {
     const animalPhoto = document.createElement("img");
     animalPhoto.setAttribute("src", info.picture)
     animalPhoto.setAttribute("width", "150px")
+    animalPhoto.setAttribute("class", "cardpic")
     card.appendChild(animalPhoto)
 
     return card;
