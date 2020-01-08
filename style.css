@@ -1,143 +1,170 @@
 /* font-family: 'Roboto Mono', monospace;
 font-family: 'Roboto', sans-serif; */
 body {
-    margin: 20px;
-    padding: 0;
+  margin: 20px;
+  padding: 0;
 }
 
 h1 {
-    border-bottom: dashed 1px;
-    padding-bottom: 10px;
+  border-bottom: dashed 1px;
+  padding-bottom: 10px;
 }
 
 header {
-    font-family: 'Roboto Mono', monospace;
-    text-align: center;
-    margin: 0 auto;
+  font-family: 'Roboto Mono', monospace;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .subheading {
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content:center
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-h2, h4 {
-    font-family: 'Roboto Mono', monospace;
-    font-weight: 300;
-    font-style: italic;
+h2,
+h4 {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 300;
+  font-style: italic;
 }
-
 
 .decks {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content:center
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-a.decklink{
-    display: block;
-    text-decoration: none;
+a.decklink {
+  display: block;
+  text-decoration: none;
 }
 
-.deck, .gallery-card {
-    height: 400px;
-    width: 300px;
-    border: 1px solid black;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 1);
-    border-radius: 15px;
-    padding-left: 20px;
-    font-family: 'Roboto Mono', monospace;
-    font-variant: small-caps;
-    color: black;
-    margin: 10px;
+.deck,
+.gallery-card {
+  height: 400px;
+  width: 300px;
+  border: 1px solid black;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 1);
+  border-radius: 15px;
+  padding-left: 20px;
+  font-family: 'Roboto Mono', monospace;
+  font-variant: small-caps;
+  color: black;
+  margin: 10px;
 }
 
 .deck:hover {
-    scale: 1.1;
-    z-index: 999;
+  scale: 1.1;
+  z-index: 999;
 }
 
 .mammals {
-    background-size: cover;
-    background-image: url("flashcard-images/tamius_striatus.jpg");
+  background-size: cover;
+  background-image: url('flashcard-images/tamius_striatus.jpg');
 }
 
 .birds {
-    background-size: cover;
-    background-image: url("flashcard-images/anas_playtrhynchos.jpg");
+  background-size: cover;
+  background-image: url('flashcard-images/anas_playtrhynchos.jpg');
 }
 
 .amphibians {
-    background-size: cover;
-    background-image: url("flashcard-images/rana_pipiens.jpg");
+  background-size: cover;
+  background-image: url('flashcard-images/rana_pipiens.jpg');
 }
 
 .reptiles {
-    background-size: cover;
-    background-image: url("flashcard-images/coluber_constrictor_constrictor.jpg");
+  background-size: cover;
+  background-image: url('flashcard-images/coluber_constrictor_constrictor.jpg');
 }
 
-.study-mode, .gallery {
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content:center
+.study-mode,
+.gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .gallery-head {
-    display: inline-block;
+  display: inline-block;
 }
 
 .button {
-    font-family: 'Roboto Mono', monospace;
-    font-variant: small-caps;
-    padding: 5px 10px;
-    margin: 18px;
-    background-color: white;
-    color:black;
-    border: 1px solid black;
+  font-family: 'Roboto Mono', monospace;
+  font-variant: small-caps;
+  padding: 5px 10px;
+  margin: 18px;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
 }
 
 .submit-button {
-    margin: 5px;
+  margin: 5px;
 }
 
 .button:hover {
-    background-color: #999999;
-    cursor: pointer;
+  background-color: #999999;
+  cursor: pointer;
 }
 
 .study-button {
-    display: none;
+  display: none;
 }
 
 .gallery-card {
-    height: 250px;
-    width: 175px;
-    font-size: 14px;
-    padding-left: 0;
+  height: 250px;
+  width: 175px;
+  font-size: 14px;
+  padding-left: 0;
 }
 
 .card-photo {
-    height:100%;
-    width:100%;
-    border-radius: 15px;
-    background-size: cover;
-    background-position: center;
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+  background-size: cover;
+  background-position: center;
 }
 
 .card-names {
-    padding-left: 20px;
-    padding-right:5px;
+  padding-left: 20px;
+  padding-right: 5px;
 }
 
-.gallery-card:hover div{
-    display:none;
+.gallery-card:hover div {
+  display: none;
 }
 
 .gallery-card:not(:hover) dl {
-    display:none;
+  display: none;
+}
+
+@keyframes flash {
+    0%, 100% {
+        background-color: white;
+    }
+    25%, 75% {
+        background-color: red;
+        opacity: 0.5;
+    }
+    50% {
+        background-color: red;
+        opacity: 1;
+    }
+}
+
+@keyframes vanish {
+    0% {
+        opacity: 1;
+        display: inline-block;
+    }
+    100%{
+        opacity: 0;
+        display: none;
+    }
 }

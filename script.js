@@ -162,11 +162,6 @@ shuffleButton.addEventListener('click', function() {
   location.reload();
 });
 
-//URL to use if I want click event on cards to go to eol page for that animal: https://eol.org/api/search/1.0.json?q=Mephitis%2Bmephitis&exact=true&page=1&key=
-//change species name to speciesName ie in getEOLPictureuRL: let speciesInfo = getInfo(speciesKey)
-// speciesName = speciesInfo.species
-// return fetch(`${speciesName}`)
-//should probably return link from first object in the array (most likely to exactly match)
 
 //QUIZ MODE
 //click "im ready for a quiz button"
@@ -231,8 +226,7 @@ function getInputFields(info) {
     ) {
       card.style.display = 'none';
     } else {
-      // input.style.color= "red";
-      alert('try again!');
+      card.style.animation = "flash 1s ease-in-out";
     }
   });
 
