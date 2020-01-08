@@ -225,6 +225,7 @@ function getInputFields(info) {
       speciesName.value === info.Species
     ) {
       card.style.display = 'none';
+      scoreDown(score);
     } else {
       card.style.animation = "flash 1s ease-in-out";
     }
@@ -243,6 +244,7 @@ function getInputFields(info) {
 
 const quizButton = document.querySelector('.quiz-button');
 const studyButton = document.querySelector('.study-button');
+const scoreBoard = document.querySelector('.score-board')
 
 quizButton.addEventListener('click', switchToQuizMode);
 
@@ -267,6 +269,7 @@ function switchToQuizMode() {
   studyButton.style.display = 'inline';
   quizButton.style.display = 'none';
   shuffleButton.style.display = 'none';
+  scoreBoard.textContent = `Cards Remaining: ${score}`;
   return cardGallery;
 }
 
@@ -285,7 +288,23 @@ function switchToStudyMode() {
   studyButton.style.display = 'none';
   quizButton.style.display = 'inline';
   shuffleButton.style.display = 'inline';
+  scoreBoard.textContent = '';
   return cardGallery;
+}
+
+//trying to get array.length from getSpecies set
+let score = getSpecies(classID).then(function (response) {
+  score = response.length
+  return score
+})
+
+function scoreDown() {
+  if(score > 0) {
+    score -= 1
+    scoreBoard.textContent = `Cards Remaining: ${score}`;
+  } else if(score = 0) {
+    scoreBoard.textContent = "Great work, scientist!"
+  }
 }
 
 //now that event listeners work, create logic to check answers and act accordingly

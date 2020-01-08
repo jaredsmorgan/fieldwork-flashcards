@@ -8,12 +8,17 @@ body {
 h1 {
   border-bottom: dashed 1px;
   padding-bottom: 10px;
+    font-family: 'Roboto Mono', monospace;
+   font-weight: 700;
+   font-style: normal;
 }
 
 header {
   font-family: 'Roboto Mono', monospace;
   text-align: center;
   margin: 0 auto;
+  font-weight: 300;
+  font-style: italic;
 }
 
 .subheading {
@@ -23,11 +28,10 @@ header {
   justify-content: center;
 }
 
-h2,
-h4 {
-  font-family: 'Roboto Mono', monospace;
-  font-weight: 300;
-  font-style: italic;
+p {
+   font-family: 'Roboto Mono', monospace;
+   font-weight: 400;
+   font-style: normal; 
 }
 
 .decks {
