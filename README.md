@@ -49,10 +49,10 @@ Silver
 
 Gold
 
-- [ ] Quiz Mode
+- [x] Quiz Mode
 
-  - [ ] this mode will show the users an image of the species with blank fields that they need to fill in for Kingdom, Phylum, Class, etc.
-  - [ ] this mode will score their answers
+  - [x] this mode will show the users an image of the species with blank fields that they need to fill in for Kingdom, Phylum, Class, etc.
+  - [x] this mode will score their answers
 
 Platinum
 

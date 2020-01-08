@@ -5,7 +5,7 @@
 
 function getSpecies(classID) {
   return fetch(
-    `http://api.gbif.org/v1/occurrence/search/?limit=300&basisOfObservation=OBSERVATION&stateProvince=Rhode%20Island&classKey=${classID}`
+    `https://api.gbif.org/v1/occurrence/search/?limit=300&basisOfObservation=OBSERVATION&stateProvince=Rhode%20Island&classKey=${classID}`
   )
     .then(function(response) {
       return response.json();
@@ -30,7 +30,7 @@ function getSpecies(classID) {
 //take the speciesKey and return an object with taxa names
 
 function getNames(speciesKey) {
-  return fetch(`http://api.gbif.org/v1/species/${speciesKey}`)
+  return fetch(`https://api.gbif.org/v1/species/${speciesKey}`)
     .then(function(response) {
       return response.json();
     })
