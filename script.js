@@ -272,6 +272,7 @@ function switchToQuizMode() {
   });
   studyButton.style.display = 'inline';
   quizButton.style.display = 'none';
+  shuffleButton.style.display = 'none';
   return cardGallery;
 }
 
@@ -289,6 +290,7 @@ function switchToStudyMode() {
   });
   studyButton.style.display = 'none';
   quizButton.style.display = 'inline';
+  shuffleButton.style.display = 'inline';
   return cardGallery;
 }
 

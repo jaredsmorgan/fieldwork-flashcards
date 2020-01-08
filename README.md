@@ -37,7 +37,7 @@ Bronze (MVP)
 - [x] Incorporates HTML, CSS and JavaScript
 - [x] Renders in the browser
 - [x] Uses Javascript for DOM manipulation
-- [ ] Deployed online using Github Project pages
+- [x] Deployed online using Github Project pages
 - [x] Uses semantic markup for HTML and CSS (adhere to best practices)
 - [x] Has a landing page that displays all cards ("study mode")
 - [x] Has a "practice mode" where cards are shuffled and users can flip back and forth between front and back of them
@@ -53,8 +53,10 @@ Gold
 
   - [x] this mode will show the users an image of the species with blank fields that they need to fill in for Kingdom, Phylum, Class, etc.
   - [x] this mode will score their answers
+  - [ ] a "cards remaining" field counts down cards as the user fills in correct answers
 
 Platinum
 
+- [ ] users can add their own cards to the decks
 - [ ] score page would allow users to review all entries for that session to identify which species they need more practice with
 - [ ] game is fully responsive so user can play on their mobile devices
