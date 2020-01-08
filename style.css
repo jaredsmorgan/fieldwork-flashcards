@@ -101,6 +101,10 @@ a.decklink{
     border: 1px solid black;
 }
 
+.submit-button {
+    margin: 5px;
+}
+
 .button:hover {
     background-color: #999999;
     cursor: pointer;

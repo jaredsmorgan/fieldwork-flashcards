@@ -171,9 +171,7 @@ shuffleButton.addEventListener('click', function() {
 //QUIZ MODE
 //click "im ready for a quiz button"
 //when button is clicked, dd elements on the cards change to input fields
-//text content of button changes to "i need to study"
-//user types answers in the input fields
-//if all input.value match thecorresponding info.{nametype}, then the card disappears
+//button changes to "i need to study"
 //if user clicks "i need to study" button, cards switch back to the default state and button changes back to "im ready for a quiz"
 
 function getInputFields(info) {
@@ -183,36 +181,60 @@ function getInputFields(info) {
   const classType = document.createElement('dt');
   classType.innerText = 'Class';
   const className = document.createElement('input');
+  className.setAttribute('class', 'class-input');
   namesList.append(classType);
   namesList.append(className);
 
   const orderType = document.createElement('dt');
   orderType.innerText = 'Order';
   const orderName = document.createElement('input');
+  orderName.setAttribute('class', 'order-input');
   namesList.append(orderType);
   namesList.append(orderName);
 
   const familyType = document.createElement('dt');
   familyType.innerText = 'Family';
   const familyName = document.createElement('input');
+  familyName.setAttribute('class', 'family-input');
   namesList.append(familyType);
   namesList.append(familyName);
 
   const genusType = document.createElement('dt');
   genusType.innerText = 'Genus';
   const genusName = document.createElement('input');
+  genusName.setAttribute('class', 'genus-input');
   namesList.append(genusType);
   namesList.append(genusName);
 
   const speciesType = document.createElement('dt');
   speciesType.innerText = 'Species';
   const speciesName = document.createElement('input');
+  speciesName.setAttribute('class', 'species-input');
   namesList.append(speciesType);
   namesList.append(speciesName);
 
   let card = document.createElement('div');
   card.appendChild(namesList);
   card.setAttribute('class', 'gallery-card');
+
+  let submit = document.createElement('button');
+  submit.textContent = 'submit';
+  submit.setAttribute('class', 'submit-button button');
+  namesList.appendChild(submit);
+  submit.addEventListener('click', function() {
+    if (
+      className.value === info.Class &&
+      orderName.value === info.Order &&
+      familyName.value === info.Family &&
+      genusName.value === info.Genus &&
+      speciesName.value === info.Species
+    ) {
+      card.style.display = 'none';
+    } else {
+      // input.style.color= "red";
+      alert('try again!');
+    }
+  });
 
   const animalPhoto = document.createElement('img');
   const cardFront = document.createElement('div');
@@ -253,3 +275,28 @@ function switchToQuizMode() {
   return cardGallery;
 }
 
+studyButton.addEventListener('click', switchToStudyMode);
+
+function switchToStudyMode() {
+  clearGallery();
+  getSpecies(classID).then(function(speciesKeys) {
+    for (var speciesKey of speciesKeys) {
+      getInfo(speciesKey).then(function(info) {
+        let card = getInfoList(info);
+        cardGallery.appendChild(card);
+      });
+    }
+  });
+  studyButton.style.display = 'none';
+  quizButton.style.display = 'inline';
+  return cardGallery;
+}
+
+//now that event listeners work, create logic to check answers and act accordingly
+//user types answers in the input fields
+//if all input.value match thecorresponding info.{nametype}, then the card disappears
+// const classInput = document.querySelector(".class-input");
+// const orderInput = document.querySelector(".order-input");
+// const familyInput = document.querySelector(".family-input");
+// const genusInput = document.querySelector(".genus-input");
+// const speciesInput = document.querySelector(".species-input");
