@@ -5,23 +5,36 @@ body {
     padding: 0;
 }
 
+h1 {
+    border-bottom: dashed 1px;
+    padding-bottom: 10px;
+}
+
 header {
     font-family: 'Roboto Mono', monospace;
     text-align: center;
-    border-bottom: dashed 1px;
     margin: 0 auto;
 }
 
-h2 {
+.subheading {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:center
+}
+
+h2, h4 {
     font-family: 'Roboto Mono', monospace;
     font-weight: 300;
     font-style: italic;
 }
 
+
 .decks {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content:center
 }
 
 a.decklink{
@@ -71,6 +84,7 @@ a.decklink{
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content:center
 }
 
 .gallery-head {
@@ -85,12 +99,15 @@ a.decklink{
     background-color: white;
     color:black;
     border: 1px solid black;
-    float:right;
 }
 
 .button:hover {
     background-color: #999999;
     cursor: pointer;
+}
+
+.study-button {
+    display: none;
 }
 
 .gallery-card {

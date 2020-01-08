@@ -45,28 +45,30 @@ function getNames(speciesKey) {
     });
 }
 
-
 //search eol API using species name from gbif API and return eol species id
 function getEOLspeciesID(speciesName) {
-    return fetch(`https://eol.org/api/search/1.0.json?q=${speciesName}&page=1&key=`)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (response) {
-            return response.results[0].id;
-        });
+  return fetch(
+    `https://eol.org/api/search/1.0.json?q=${speciesName}&page=1&key=`
+  )
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(response) {
+      return response.results[0].id;
+    });
 }
-
 
 //take eol species id and return url of a picture from species page
 function getEOLPictureURL(eolID) {
-    return fetch(`https://eol.org/api/pages/1.0/${eolID}.json?details=true&images_per_page=1`)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (response) {
-            return response.taxonConcept.dataObjects[0].eolMediaURL;
-        });
+  return fetch(
+    `https://eol.org/api/pages/1.0/${eolID}.json?details=true&images_per_page=1`
+  )
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(response) {
+      return response.taxonConcept.dataObjects[0].eolMediaURL;
+    });
 }
 
 //combine taxa names and picture url into one object
@@ -74,7 +76,7 @@ function getInfo(speciesKey) {
   let namesPromise = getNames(speciesKey);
 
   return namesPromise.then(function(names) {
-      let picturePromise =   getEOLspeciesID(names.Species).then(getEOLPictureURL)
+    let picturePromise = getEOLspeciesID(names.Species).then(getEOLPictureURL);
     return picturePromise.then(function(picture) {
       return { ...names, picture };
     });
@@ -90,7 +92,7 @@ function getInfo(speciesKey) {
 
 function getInfoList(info) {
   const namesList = document.createElement('dl');
-  namesList.setAttribute("class", "card-names")
+  namesList.setAttribute('class', 'card-names');
 
   const classType = document.createElement('dt');
   classType.innerText = 'Class';
@@ -133,10 +135,10 @@ function getInfoList(info) {
 
   const animalPhoto = document.createElement('img');
   const cardFront = document.createElement('div');
-  cardFront.setAttribute("class", "card-photo")
+  cardFront.setAttribute('class', 'card-photo');
   animalPhoto.setAttribute('src', info.picture);
   animalPhoto.setAttribute('width', '150px');
-  cardFront.style.backgroundImage = `url(${info.picture})`
+  cardFront.style.backgroundImage = `url(${info.picture})`;
   card.appendChild(cardFront);
 
   return card;
@@ -154,28 +156,17 @@ getSpecies(classID).then(function(speciesKeys) {
 });
 
 //event listener for shuffle button
-const shuffleButton = document.querySelector(".shuffle-cards");
+const shuffleButton = document.querySelector('.shuffle-cards');
 
-shuffleButton.addEventListener("click", function(){
-    location.reload();
-})
-
+shuffleButton.addEventListener('click', function() {
+  location.reload();
+});
 
 //URL to use if I want click event on cards to go to eol page for that animal: https://eol.org/api/search/1.0.json?q=Mephitis%2Bmephitis&exact=true&page=1&key=
 //change species name to speciesName ie in getEOLPictureuRL: let speciesInfo = getInfo(speciesKey)
 // speciesName = speciesInfo.species
 // return fetch(`${speciesName}`)
 //should probably return link from first object in the array (most likely to exactly match)
-
-
-
-
-
-
-
-
-
-
 
 //QUIZ MODE
 //click "im ready for a quiz button"
@@ -185,74 +176,80 @@ shuffleButton.addEventListener("click", function(){
 //if all input.value match thecorresponding info.{nametype}, then the card disappears
 //if user clicks "i need to study" button, cards switch back to the default state and button changes back to "im ready for a quiz"
 
+function getInputFields(info) {
+  const namesList = document.createElement('dl');
+  namesList.setAttribute('class', 'card-names');
 
+  const classType = document.createElement('dt');
+  classType.innerText = 'Class';
+  const className = document.createElement('input');
+  namesList.append(classType);
+  namesList.append(className);
 
-// cardGallery = document.querySelector('.gallery');
-// getSpecies(classID).then(function (speciesKeys) {
-//     for (var speciesKey of speciesKeys) {
-//         getInfo(speciesKey).then(function (info) {
-//             let card = getInfoList(info);
-//             cardGallery.appendChild(card);
-//         });
-//     }
-// });
+  const orderType = document.createElement('dt');
+  orderType.innerText = 'Order';
+  const orderName = document.createElement('input');
+  namesList.append(orderType);
+  namesList.append(orderName);
 
-// function getInfoList(info) {
-//     const namesList = document.createElement('dl');
-//     namesList.setAttribute("class", "card-names")
+  const familyType = document.createElement('dt');
+  familyType.innerText = 'Family';
+  const familyName = document.createElement('input');
+  namesList.append(familyType);
+  namesList.append(familyName);
 
-//     const classType = document.createElement('dt');
-//     classType.innerText = 'Class';
-//     const className = document.createElement('dd');
-//     className.innerText = info.Class;
-//     namesList.append(classType);
-//     namesList.append(className);
+  const genusType = document.createElement('dt');
+  genusType.innerText = 'Genus';
+  const genusName = document.createElement('input');
+  namesList.append(genusType);
+  namesList.append(genusName);
 
-//     const orderType = document.createElement('dt');
-//     orderType.innerText = 'Order';
-//     const orderName = document.createElement('dd');
-//     orderName.innerText = info.Order;
-//     namesList.append(orderType);
-//     namesList.append(orderName);
+  const speciesType = document.createElement('dt');
+  speciesType.innerText = 'Species';
+  const speciesName = document.createElement('input');
+  namesList.append(speciesType);
+  namesList.append(speciesName);
 
-//     const familyType = document.createElement('dt');
-//     familyType.innerText = 'Family';
-//     const familyName = document.createElement('dd');
-//     familyName.innerText = info.Family;
-//     namesList.append(familyType);
-//     namesList.append(familyName);
+  let card = document.createElement('div');
+  card.appendChild(namesList);
+  card.setAttribute('class', 'gallery-card');
 
-//     const genusType = document.createElement('dt');
-//     genusType.innerText = 'Genus';
-//     const genusName = document.createElement('dd');
-//     genusName.innerText = info.Genus;
-//     namesList.append(genusType);
-//     namesList.append(genusName);
+  const animalPhoto = document.createElement('img');
+  const cardFront = document.createElement('div');
+  cardFront.setAttribute('class', 'card-photo');
+  animalPhoto.setAttribute('src', info.picture);
+  animalPhoto.setAttribute('width', '150px');
+  cardFront.style.backgroundImage = `url(${info.picture})`;
+  card.appendChild(cardFront);
 
-//     const speciesType = document.createElement('dt');
-//     speciesType.innerText = 'Species';
-//     const speciesName = document.createElement('dd');
-//     speciesName.innerText = info.Species;
-//     namesList.append(speciesType);
-//     namesList.append(speciesName);
+  return card;
+}
 
-//     let card = document.createElement('div');
-//     card.appendChild(namesList);
-//     card.setAttribute('class', 'gallery-card');
+const quizButton = document.querySelector('.quiz-button');
+const studyButton = document.querySelector('.study-button');
 
-//     const animalPhoto = document.createElement('img');
-//     const cardFront = document.createElement('div');
-//     cardFront.setAttribute("class", "card-photo")
-//     animalPhoto.setAttribute('src', info.picture);
-//     animalPhoto.setAttribute('width', '150px');
-//     cardFront.style.backgroundImage = `url(${info.picture})`
-//     card.appendChild(cardFront);
+quizButton.addEventListener('click', switchToQuizMode);
 
-//     return card;
-// }
+function clearGallery() {
+  let card = cardGallery.firstElementChild;
+  while (card) {
+    cardGallery.removeChild(card);
+    card = cardGallery.firstElementChild;
+  }
+}
 
-const quizButton = document.querySelector(".quiz-button");
-quizButton.addEventListener("click", switchToQuizMode);
-
-function switchToQuizMode(){}
+function switchToQuizMode() {
+  clearGallery();
+  getSpecies(classID).then(function(speciesKeys) {
+    for (var speciesKey of speciesKeys) {
+      getInfo(speciesKey).then(function(info) {
+        let card = getInputFields(info);
+        cardGallery.appendChild(card);
+      });
+    }
+  });
+  studyButton.style.display = 'inline';
+  quizButton.style.display = 'none';
+  return cardGallery;
+}
 
