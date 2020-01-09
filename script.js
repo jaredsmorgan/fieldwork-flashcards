@@ -1,6 +1,6 @@
-//get a list of all rhode island animals of a certain class from gbif
-//creat arrays of the different taxas
-//deduplicate the lists
+//get all rhode island animal sightings of a certain Class from gbif
+//create arrays of the species keys
+//deduplicate the list
 //return new deduped list
 
 function getSpecies(classID) {
@@ -71,7 +71,7 @@ function getEOLPictureURL(eolID) {
     });
 }
 
-//combine taxa names and picture url into one object
+//combine gbif taxa names and eol picture url into one object
 function getInfo(speciesKey) {
   let namesPromise = getNames(speciesKey);
 
@@ -144,7 +144,7 @@ function getInfoList(info) {
   return card;
 }
 
-//loop that uses helper functions and array of species to create cards
+//loop over array of species keys and invoke functions to create cards
 cardGallery = document.querySelector('.gallery');
 getSpecies(classID).then(function(speciesKeys) {
   for (var speciesKey of speciesKeys) {
@@ -164,10 +164,7 @@ shuffleButton.addEventListener('click', function() {
 
 
 //QUIZ MODE
-//click "im ready for a quiz button"
-//when button is clicked, dd elements on the cards change to input fields
-//button changes to "i need to study"
-//if user clicks "i need to study" button, cards switch back to the default state and button changes back to "im ready for a quiz"
+//create cards with input fields instead of dd elements 
 
 function getInputFields(info) {
   const namesList = document.createElement('dl');
@@ -216,6 +213,7 @@ function getInputFields(info) {
   submit.textContent = 'submit';
   submit.setAttribute('class', 'submit-button button');
   namesList.appendChild(submit);
+  //function to check answers
   submit.addEventListener('click', function() {
     if (
       className.value === info.Class &&
@@ -246,6 +244,7 @@ const quizButton = document.querySelector('.quiz-button');
 const studyButton = document.querySelector('.study-button');
 const scoreBoard = document.querySelector('.score-board')
 
+//clear gallery of study cards and populate it with quiz mode cards
 quizButton.addEventListener('click', switchToQuizMode);
 
 function clearGallery() {
@@ -273,6 +272,7 @@ function switchToQuizMode() {
   return cardGallery;
 }
 
+//clear gallery of quiz cards and populate it with study cards
 studyButton.addEventListener('click', switchToStudyMode);
 
 function switchToStudyMode() {
@@ -292,12 +292,13 @@ function switchToStudyMode() {
   return cardGallery;
 }
 
-//trying to get array.length from getSpecies set
+//get array.length from getSpecies set
 let score = getSpecies(classID).then(function (response) {
   score = response.length
   return score
 })
 
+//count down the score each time user fills out a card correctly
 function scoreDown() {
   if(score > 0) {
     score -= 1
@@ -307,11 +308,3 @@ function scoreDown() {
   }
 }
 
-//now that event listeners work, create logic to check answers and act accordingly
-//user types answers in the input fields
-//if all input.value match thecorresponding info.{nametype}, then the card disappears
-// const classInput = document.querySelector(".class-input");
-// const orderInput = document.querySelector(".order-input");
-// const familyInput = document.querySelector(".family-input");
-// const genusInput = document.querySelector(".genus-input");
-// const speciesInput = document.querySelector(".species-input");

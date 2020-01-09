@@ -62,13 +62,13 @@ Platinum
 
 ## Features
 
-Fieldwork Flashcards in its current form is on its way to platinum level. 
+Fieldwork Flashcards in its current form is on its way to platinum level.
 
 Flashcards are organized into separate decks by Class (the taxonomic rank, not the web dev selector). At this time, users can choose from Classes Mammalia, Aves, Amphibia, and Reptilia.
 
 The study page for each card deck loads with cards facing up, showing a picture of each species. Users hover over the card to "flip" it, and see a list of taxa names for that species. Users can click buttons to shuffle the cards or enter a quiz mode.
 
-Quiz mode reloads the cards with input fields on the back of each card instead of the taxa names. Users fill in each field and click "submit", and the game scores their answers. If any one of the fields is incorrect, the card background will flash red. If all fields are correct, the card vanishes. A "cards remaining" field at the top of the page counts down as cards vanish, letting the user know how many they have left. When the user eliminates all cards, the text changes to "Great work, scientist!" From this page, users can navigate back to the homepage to choose another deck or navigate back to study mode by clicking buttons on the page.  
+Quiz mode reloads the cards with input fields on the back of each card instead of the taxa names. Users fill in each field and click "submit", and the game scores their answers. If any one of the fields is incorrect, the card background will flash red. If all fields are correct, the card vanishes. A "cards remaining" field at the top of the page counts down as cards vanish, letting the user know how many they have left. When the user eliminates all cards, the text changes to "Great work, scientist!" From this page, users can navigate back to the homepage to choose another deck or navigate back to study mode by clicking buttons on the page.
 
 Fieldwork Flashcards is fully responsive and works well on mobile devices. It was designed and built using Chrome, but it should function well in any modern browser.
 
@@ -77,26 +77,27 @@ Fieldwork Flashcards is fully responsive and works well on mobile devices. It wa
 This game was built entirely with HTML, CSS, and JavaScript. Hosted on a GitHub project page, it should render and function well in any modern browser.
 
 The cards in each deck are not hard-coded. Rather, they are generated dynamically using two different APIs:
-* I pulled the taxonomic information from each species from Global Biodiversity Information Facility, a site that offers open access to biodiversity data from all over the globe. This allowed me to query data by US state and Class, and pull data on mammals/birds/etc. found in the state of Rhode Island. You can find the docs for the GBIF API [here](https://www.gbif.org/developer/summary). GBIF gets much of its data from iNaturalist, a site where users can report species sitings with photos and geographic location, along with a plethora of other information about the siting. The benefit of this is that it allowed me to query data from a relatively specific area. The downfall, however, involved many many pictures of roadkill. 
-* In order to increase my chance of accessing photos of live animals, I pulled pictures for the front of the flashcards from the Encyclopedia of Life: basically the Wikipedia of species, but better. Making these two APIs work together to produce one flashcard required several steps: I took the unique species key produced by GBIF, converted that into a species name, which was in turn converted to a unique EoL species key which I could plug into the EoL search. The EoL classic API docs can be found [here](https://eol.org/docs/what-is-eol/data-services/classic-apis).
+
+- I pulled the taxonomic information from each species from Global Biodiversity Information Facility, a site that offers open access to biodiversity data from all over the globe. This allowed me to query data by US state and Class, and pull data on mammals/birds/etc. found in the state of Rhode Island. You can find the docs for the GBIF API [here](https://www.gbif.org/developer/summary). GBIF gets much of its data from iNaturalist, a site where users can report species sitings with photos and geographic location, along with a plethora of other information about the siting. The benefit of this is that it allowed me to query data from a relatively specific area. The downfall, however, involved many many pictures of roadkill.
+- In order to increase my chance of accessing photos of live animals, I pulled pictures for the front of the flashcards from the Encyclopedia of Life: basically the Wikipedia of species, but better. Making these two APIs work together to produce one flashcard required several steps: I took the unique species key produced by GBIF, converted that into a species name, which was in turn converted to a unique EoL species key which I could plug into the EoL search. The EoL classic API docs can be found [here](https://eol.org/docs/what-is-eol/data-services/classic-apis).
 
 ## Biggest Challenges
 
-The most difficult part of this project was writing the logic to generate the cards. I eliminated the idea of hard-coding cards early on in my planning, because it would have greatly limited the scope of this project. 
+The most difficult part of this project was writing the logic to generate the cards. I eliminated the idea of hard-coding cards early on in my planning, because it would have greatly limited the scope of this project.
 
-Deciding to use APIs was easy, figuring it all out was another matter. One of my biggest takeaways from this project is that working with APIs is *hard*. No two are exactly alike, and they all have their quirks. After coding in JavaScript for a while before learning APIs, I had to remind myself approximately one billion times that **fetch only returns a promise** and you **have to** use .then to do anything with it. 
+Deciding to use APIs was easy, figuring it all out was another matter. One of my biggest takeaways from this project is that working with APIs is _hard_. No two are exactly alike, and they all have their quirks. After coding in JavaScript for a while before learning APIs, I had to remind myself approximately one billion times that **fetch only returns a promise** and you **have to** use .then to do anything with it.
 
-I also had a very hard time in the beginning making it all work, until I broke everything down into tiny steps and wrote a function for each one.  
+I also had a very hard time in the beginning making it all work, until I broke everything down into tiny steps and wrote a function for each one.
 
 ## Biggest Successes
 
 I am really proud of the way this game looks. I really enjoy design, and I was inspired by the minimal design of old field guides. I wish I could have used beautiful old scientific illustrations for all of the cards!
 
-I am also really proud of how many features I was able to develop for Fieldwork Flashcards. I certainly did not expect to achieve any of my platinum goals, but I did, and I'm proud. 
+I am also really proud of how many features I was able to develop for Fieldwork Flashcards. I certainly did not expect to achieve any of my platinum goals, but I did, and I'm proud.
 
 ### A snippet I'm particularly proud of
 
-Here I iterated over an array of species keys that I generaed with the getSpecies function, and for each key, created a card object using the getInfo function, and populated information and an image from the object to a card using the getInfoList function, and then appended that card to the gallery. This was the culmination of all the many small steps I took before this, and I was overjoyed when I finally created the version that worked. 
+Here I iterated over an array of species keys that I generaed with the getSpecies function, and for each key, created a card object using the getInfo function, and populated information and an image from the object to a card using the getInfoList function, and then appended that card to the gallery. This was the culmination of all the many small steps I took before this, and I was overjoyed when I finally created the version that worked.
 
 ```javascript
 cardGallery = document.querySelector('.gallery');
@@ -114,7 +115,6 @@ getSpecies(classID).then(function(speciesKeys) {
 
 Despite taking the extra steps to pull images from a better source, they are not perfect. While the roadkill is gone, some cards depict skulls/skeletons, or preserved specimens. Identifying species this way is still very common for wildlife biology students, but it's not really what I was going for. Additionally, each image is so different in size that some are cropped strangely when they are applied to the card. In the future I'd like to be able to address these issues to improve the usability of this game.
 
-My JavaScript code could not be considered very DRY in its current state. The code that initially generates the cards for study mode is repeated to generate quiz mode, with minor changes to generate input fields instead of `<dd>` elements. In the future, I'd like to be able to implement this in a different way, so that my code is DRYer and makes fewer API requests, which would reduce loading time. 
+My JavaScript code could not be considered very DRY in its current state. The code that initially generates the cards for study mode is repeated to generate quiz mode, with minor changes to generate input fields instead of `<dd>` elements. In the future, I'd like to be able to implement this in a different way, so that my code is DRYer and makes fewer API requests, which would reduce loading time.
 
-In the future I'd also like to be able to add decks for more taxa to include marine species and insects/arachnids, and add a feature that allows users to create their own cards. 
-
+In the future I'd also like to be able to add decks for more taxa to include marine species and insects/arachnids, and add a feature that allows users to create their own cards.
