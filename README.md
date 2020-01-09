@@ -118,3 +118,7 @@ Despite taking the extra steps to pull images from a better source, they are not
 My JavaScript code could not be considered very DRY in its current state. The code that initially generates the cards for study mode is repeated to generate quiz mode, with minor changes to generate input fields instead of `<dd>` elements. In the future, I'd like to be able to implement this in a different way, so that my code is DRYer and makes fewer API requests, which would reduce loading time.
 
 In the future I'd also like to be able to add decks for more taxa to include marine species and insects/arachnids, and add a feature that allows users to create their own cards.
+
+## Gratitude
+
+Thank you to all my GA teachers and fellow students for help and support throughout this project week!
