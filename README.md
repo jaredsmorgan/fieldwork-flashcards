@@ -1,6 +1,6 @@
 # Fieldwork Flashcards :bear: :bird: :frog: :snake:
 
-## About Fieldwork Flashcards
+## About This Game
 
 ![Fieldwork Flashcards landing page](https://i.imgur.com/0CUAdce.png)
 
