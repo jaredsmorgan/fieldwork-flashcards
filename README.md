@@ -1,6 +1,8 @@
-# Fieldwork Flashcards :bear: :owl: :frog: :snake:
+# Fieldwork Flashcards :bear: :bird: :frog: :snake:
 
 ## About Fieldwork Flashcards
+
+![Fieldwork Flashcards landing page](https://i.imgur.com/0CUAdce.png)
 
 Ever since I can remember, my first love has been animals. As a kid I wanted to be like Jane Goodall or Steve Irwin. I followed this passion right through undergrad, and earned a degree in Wildlife & Conservation Biology. Throughout my time in that program, my professors and mentors emphasized the importance of local natural resources and native species. An expectation in every wildlife course; whether ornithology, herpetology, mammalogy, or entomology, was to memorize the clade and scientific name of every species, and to be able to identify that species in the field.
 
@@ -75,8 +77,8 @@ Fieldwork Flashcards is fully responsive and works well on mobile devices. It wa
 This game was built entirely with HTML, CSS, and JavaScript. Hosted on a GitHub project page, it should render and function well in any modern browser.
 
 The cards in each deck are not hard-coded. Rather, they are generated dynamically using two different APIs:
-* I pulled the taxonomic information from each species from Global Biodiversity Information Facility, a site that offers open access to biodiversity data from all over the globe. This allowed me to query data by US state and Class, and pull data on mammals/birds/etc. found in the state of Rhode Island. You can find the docs for the GBIF API [here.](https://www.gbif.org/developer/summary). GBIF gets much of its data from iNaturalist, a site where users can report species sitings with photos and geographic location, along with a plethora of other information about the siting. The benefit of this is that it allowed me to query data from a relatively specific area. The downfall, however, involved many many pictures of roadkill. 
-* In order to increase my chance of accessing photos of live animals, I pulled pictures for the front of the flashcards from the Encyclopedia of Life: basically the Wikipedia of species, but better. Making these two APIs work together to produce one flashcard required several steps: I took the unique species key produced by GBIF, converted that into a species name, which was in turn converted to a unique EoL species key which I could plug into the EoL search. The EoL classic API docs can be found [here.](https://eol.org/docs/what-is-eol/data-services/classic-apis).
+* I pulled the taxonomic information from each species from Global Biodiversity Information Facility, a site that offers open access to biodiversity data from all over the globe. This allowed me to query data by US state and Class, and pull data on mammals/birds/etc. found in the state of Rhode Island. You can find the docs for the GBIF API [here](https://www.gbif.org/developer/summary). GBIF gets much of its data from iNaturalist, a site where users can report species sitings with photos and geographic location, along with a plethora of other information about the siting. The benefit of this is that it allowed me to query data from a relatively specific area. The downfall, however, involved many many pictures of roadkill. 
+* In order to increase my chance of accessing photos of live animals, I pulled pictures for the front of the flashcards from the Encyclopedia of Life: basically the Wikipedia of species, but better. Making these two APIs work together to produce one flashcard required several steps: I took the unique species key produced by GBIF, converted that into a species name, which was in turn converted to a unique EoL species key which I could plug into the EoL search. The EoL classic API docs can be found [here](https://eol.org/docs/what-is-eol/data-services/classic-apis).
 
 ## Biggest Challenges
 
@@ -92,7 +94,7 @@ I am really proud of the way this game looks. I really enjoy design, and I was i
 
 I am also really proud of how many features I was able to develop for Fieldwork Flashcards. I certainly did not expect to achieve any of my platinum goals, but I did, and I'm proud. 
 
-### Some snippet I'm particularly proud of
+### A snippet I'm particularly proud of
 
 Here I iterated over an array of species keys that I generaed with the getSpecies function, and for each key, created a card object using the getInfo function, and populated information and an image from the object to a card using the getInfoList function, and then appended that card to the gallery. This was the culmination of all the many small steps I took before this, and I was overjoyed when I finally created the version that worked. 
 
@@ -110,9 +112,9 @@ getSpecies(classID).then(function(speciesKeys) {
 
 ## Unsolved Issues and Ideas for the Future
 
-Despite taking the extra steps to pull images from a better source, they are not perfect. While the roadkill is gone, some cards depict skulls/skeletons, or preserved species. Identifying species this way is still very common for wildlife biology students, but it's not really what I was going for. Additionally, each image is so different in size that some are cropped strangely when they are applied to the card. In the future I'd like to be able to address these issues to improve the usability of this game.
+Despite taking the extra steps to pull images from a better source, they are not perfect. While the roadkill is gone, some cards depict skulls/skeletons, or preserved specimens. Identifying species this way is still very common for wildlife biology students, but it's not really what I was going for. Additionally, each image is so different in size that some are cropped strangely when they are applied to the card. In the future I'd like to be able to address these issues to improve the usability of this game.
 
 My JavaScript code could not be considered very DRY in its current state. The code that initially generates the cards for study mode is repeated to generate quiz mode, with minor changes to generate input fields instead of `<dd>` elements. In the future, I'd like to be able to implement this in a different way, so that my code is DRYer and makes fewer API requests, which would reduce loading time. 
 
-In the future I'd also like to be able to add decks for more taxa to include marine species and insects/arachnids. 
+In the future I'd also like to be able to add decks for more taxa to include marine species and insects/arachnids, and add a feature that allows users to create their own cards. 
 

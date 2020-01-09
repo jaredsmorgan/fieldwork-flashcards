@@ -3,6 +3,7 @@ font-family: 'Roboto', sans-serif; */
 body {
   margin: 20px;
   padding: 0;
+  background-color: #f2f2ed
 }
 
 h1 {
@@ -19,6 +20,10 @@ header {
   margin: 0 auto;
   font-weight: 300;
   font-style: italic;
+  position: sticky;
+  top: 0;
+  background-color: #f2f2ed;
+  z-index: 9999;
 }
 
 .subheading {
@@ -26,18 +31,30 @@ header {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: flex-start;
+  background-color: #f2f2ed;
+  padding-top:0px;
+  margin-top:0px;
 }
 
 h2 {
    font-family: 'Roboto Mono', monospace;
    font-weight: 300;
    font-style: italic; 
+   text-align: center;
 }
 
 p {
    font-family: 'Roboto Mono', monospace;
    font-weight: 400;
    font-style: normal; 
+   margin-top: 0;
+   padding: 5px;
+}
+
+.decks, .gallery {
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 .decks {
@@ -54,8 +71,8 @@ a.decklink {
 
 .deck,
 .gallery-card {
-  height: 400px;
-  width: 300px;
+  height: 350px;
+  width: 250px;
   border: 1px solid black;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 1);
   border-radius: 15px;
@@ -64,6 +81,7 @@ a.decklink {
   font-variant: small-caps;
   color: black;
   margin: 10px;
+  background-color: white;
 }
 
 .deck:hover {
@@ -101,6 +119,7 @@ a.decklink {
 
 .gallery-head {
   display: inline-block;
+  margin-top:0;
 }
 
 .button {
@@ -111,6 +130,7 @@ a.decklink {
   background-color: white;
   color: black;
   border: 1px solid black;
+  margin-top:0;
 }
 
 .submit-button {
