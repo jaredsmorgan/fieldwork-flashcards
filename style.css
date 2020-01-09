@@ -8,7 +8,7 @@ body {
 h1 {
   border-bottom: dashed 1px;
   padding-bottom: 10px;
-    font-family: 'Roboto Mono', monospace;
+  font-family: 'Roboto Mono', monospace;
    font-weight: 700;
    font-style: normal;
 }
@@ -26,6 +26,12 @@ header {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+h2 {
+   font-family: 'Roboto Mono', monospace;
+   font-weight: 300;
+   font-style: italic; 
 }
 
 p {
