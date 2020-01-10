@@ -97,7 +97,7 @@ I am also really proud of how many features I was able to develop for Fieldwork 
 
 ### A snippet I'm particularly proud of
 
-Here I iterated over an array of species keys that I generaed with the getSpecies function, and for each key, created a card object using the getInfo function, and populated information and an image from the object to a card using the getInfoList function, and then appended that card to the gallery. This was the culmination of all the many small steps I took before this, and I was overjoyed when I finally created the version that worked.
+Here I iterated over an array of species keys that I generated with the getSpecies function, and for each key, created a card object using the getInfo function, and populated information and an image from the object to a card using the getInfoList function, and then appended that card to the gallery. This was the culmination of all the many small steps I took before this, and I was overjoyed when I finally created the version that worked.
 
 ```javascript
 cardGallery = document.querySelector('.gallery');

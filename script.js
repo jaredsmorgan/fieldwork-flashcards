@@ -71,7 +71,7 @@ function getEOLPictureURL(eolID) {
     });
 }
 
-//combine gbif taxa names and eol picture url into one object
+//combine gbif taxa names and eol picture url into one object and un-nest names
 function getInfo(speciesKey) {
   let namesPromise = getNames(speciesKey);
 
