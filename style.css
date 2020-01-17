@@ -1,3 +1,6 @@
+/* JM: Look at ways to refactor your CSS. You can reduce repetition and use things like variables to streamline changes to things like colors across multiple elements.  */
+/* JM: Great job on responsive design. */
+
 body {
   margin: 20px;
   padding: 0;
@@ -8,8 +11,8 @@ body {
 h1 {
   border-bottom: dashed 1px;
   padding-bottom: 10px;
-   font-weight: 700;
-   font-style: normal;
+  font-weight: 700;
+  font-style: normal;
 }
 
 header {
@@ -30,26 +33,27 @@ header {
   justify-content: center;
   align-items: flex-start;
   background-color: #f2f2ed;
-  padding-top:0px;
-  margin-top:0px;
+  padding-top: 0px;
+  margin-top: 0px;
 }
 
 h2 {
-   font-weight: 300;
-   font-style: italic; 
-   text-align: center;
+  font-weight: 300;
+  font-style: italic;
+  text-align: center;
 }
 
-p header{
-   font-weight: 400;
-   font-style: normal; 
-   margin-top: 0;
-   padding: 5px;
+p header {
+  font-weight: 400;
+  font-style: normal;
+  margin-top: 0;
+  padding: 5px;
 }
 
-.decks, .gallery {
-    max-width: 700px;
-    margin: 0 auto;
+.decks,
+.gallery {
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .decks {
@@ -117,7 +121,7 @@ a.decklink {
 
 .gallery-head {
   display: inline-block;
-  margin-top:0;
+  margin-top: 0;
 }
 
 .button {
@@ -128,7 +132,7 @@ a.decklink {
   background-color: white;
   color: black;
   border: 1px solid black;
-  margin-top:0;
+  margin-top: 0;
 }
 
 .submit-button {
@@ -184,36 +188,40 @@ input:focus {
   display: none;
 }
 
-footer{
-    border-top: 1px dashed;
-    margin-top: 20px;
-    font-style: italic;
-    font-size: 14px;
-    line-height: .6;
+footer {
+  border-top: 1px dashed;
+  margin-top: 20px;
+  font-style: italic;
+  font-size: 14px;
+  line-height: .6;
 }
 
-footer a{
-    color:black;
-    text-decoration: none;
-    display:block;
-    line-height: 1.4;
+footer a {
+  color: black;
+  text-decoration: none;
+  display: block;
+  line-height: 1.4;
 }
 
 footer a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 @keyframes flash {
-    0%, 100% {
-        background-color: white;
-    }
-    25%, 75% {
-        background-color: red;
-        opacity: 0.5;
-    }
-    50% {
-        background-color: red;
-        opacity: 1;
-    }
-}
 
+  0%,
+  100% {
+    background-color: white;
+  }
+
+  25%,
+  75% {
+    background-color: red;
+    opacity: 0.5;
+  }
+
+  50% {
+    background-color: red;
+    opacity: 1;
+  }
+}

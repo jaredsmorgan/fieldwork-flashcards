@@ -3,6 +3,7 @@
 //deduplicate the list
 //return new deduped list
 
+// JM: I'm not familiar with the API, but curious if there's a way to reduce the number of fetch? Can you jump straight to the names with a set group of species stored in an array? I know it's slowing your load time, and know that's because you're having to make 4 API calls to build your deck.
 function getSpecies(classID) {
   return fetch(
     `https://api.gbif.org/v1/occurrence/search/?limit=300&basisOfObservation=OBSERVATION&stateProvince=Rhode%20Island&classKey=${classID}`
@@ -90,6 +91,7 @@ function getInfo(speciesKey) {
 //create an img element for the card
 //append url from getInfo as src attribute of img
 
+// JM: I think you could refactor the class, order, family, and genus part of this function to append each element. Iterating over info to append each element.
 function getInfoList(info) {
   const namesList = document.createElement('dl');
   namesList.setAttribute('class', 'card-names');
@@ -146,6 +148,7 @@ function getInfoList(info) {
 
 //loop over array of species keys and invoke functions to create cards
 cardGallery = document.querySelector('.gallery');
+// JM: Great use of chaining. Use 'let' instead of 'var' in your for loop to avoid potential scope issues.
 getSpecies(classID).then(function(speciesKeys) {
   for (var speciesKey of speciesKeys) {
     getInfo(speciesKey).then(function(info) {
@@ -158,14 +161,14 @@ getSpecies(classID).then(function(speciesKeys) {
 //event listener for shuffle button
 const shuffleButton = document.querySelector('.shuffle-cards');
 
+// JM: Consider an approach that just shuffles the existing cards to avoid the long load on your API calls.
 shuffleButton.addEventListener('click', function() {
   location.reload();
 });
 
-
 //QUIZ MODE
-//create cards with input fields instead of dd elements 
-
+//create cards with input fields instead of dd elements
+// JM: Similar to your flashcard function. Look at ways to refactor to reduce the repetition in this function.
 function getInputFields(info) {
   const namesList = document.createElement('dl');
   namesList.setAttribute('class', 'card-names');
@@ -215,6 +218,7 @@ function getInputFields(info) {
   namesList.appendChild(submit);
   //function to check answers
   submit.addEventListener('click', function() {
+    // JM: A potential UI improvement would be letting users know which are correct/incorrect. Would probably need a way to iterate over them and provide a response like field background color change based on match.
     if (
       className.value === info.Class &&
       orderName.value === info.Order &&
@@ -225,7 +229,7 @@ function getInputFields(info) {
       card.style.display = 'none';
       scoreDown(score);
     } else {
-      card.style.animation = "flash 1s ease-in-out";
+      card.style.animation = 'flash 1s ease-in-out';
     }
   });
 
@@ -242,7 +246,7 @@ function getInputFields(info) {
 
 const quizButton = document.querySelector('.quiz-button');
 const studyButton = document.querySelector('.study-button');
-const scoreBoard = document.querySelector('.score-board')
+const scoreBoard = document.querySelector('.score-board');
 
 //clear gallery of study cards and populate it with quiz mode cards
 quizButton.addEventListener('click', switchToQuizMode);
@@ -293,18 +297,17 @@ function switchToStudyMode() {
 }
 
 //get array.length from getSpecies set
-let score = getSpecies(classID).then(function (response) {
-  score = response.length
-  return score
-})
+let score = getSpecies(classID).then(function(response) {
+  score = response.length;
+  return score;
+});
 
 //count down the score each time user fills out a card correctly
 function scoreDown() {
-  if(score > 0) {
-    score -= 1
+  if (score > 0) {
+    score -= 1;
     scoreBoard.textContent = `Cards Remaining: ${score}`;
-  } else if(score = 0) {
-    scoreBoard.textContent = "Great work, scientist!"
+  } else if ((score = 0)) {
+    scoreBoard.textContent = 'Great work, scientist!';
   }
 }
-
